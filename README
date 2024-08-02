@@ -2,8 +2,31 @@
 
 #+STARTUP: indent
 
-* What
+#+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+options: author:t broken-links:nil c:nil creator:nil
+#+options: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
+#+options: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+options: timestamp:t title:t toc:t todo:t |:t
+#+title: README
+#+date: <2024-08-02 Fri>
+#+author: Hasura
+#+email: hasura@hasura
+#+language: en
+#+select_tags: export
+#+exclude_tags: noexport
+#+creator: Emacs 29.4 (Org mode 9.6.15)
+#+cite_export:
 
-* Why
+* Hasura CassandraDB Connector
 
-* How
+** Requirements
+
+** Build & Run
+
+** Developing
+
+** License
+
+The Hasura MongoDB Connector is available under the [[https://www.apache.org/licenses/LICENSE-2.0][Apache License 2.0]]
+(Apache-2.0).
+
