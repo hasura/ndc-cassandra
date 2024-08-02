@@ -1,23 +1,23 @@
 package com.hasura;
 
+import com.sun.net.httpserver.*;
 import java.io.*;
-import javax.xml.ws.*;
-import javax.xml.ws.http.*;
-import javax.xml.transform.*;
-import javax.xml.transform.stream.*;
-
-@WebServiceProvider
-@ServiceMode(value = Service.Mode.PAYLOAD)
-public class App implements Provider<Source> {
-    @Override
-    public Source invoke(Source request) {
-	return new StreamSource(new StringReader("<p>Hello There!</p>"));
+import java.net.*;
+    
+class App implements HttpHandler {
+    public static void main (String[] args) throws IOException {
+	HttpServer server = HttpServer.create(new InetSocketAddress(8000), 0);
+	server.createContext("/applications/myapp", new App());
+	server.setExecutor(null); // creates a default executor
+	server.start();
     }
-    public static void main (String[] args) throws InterruptedException {
-	String address = "http://127.0.0.1:8000/";
-	Endpoint.create(HTTPBinding.HTTP_BINDING, new App()).publish(address);
-	System.out.println("Service running at " + address);
-	System.out.println("Type [CTRL]+[C] to quit!");
-	Thread.sleep(Long.MAX_VALUE);
+
+    public void handle(HttpExchange t) throws IOException {
+	InputStream is = t.getRequestBody();
+	String response = "This is the response";
+	t.sendResponseHeaders(200, response.length());
+	OutputStream os = t.getResponseBody();
+	os.write(response.getBytes());
+	os.close();
     }
 }
