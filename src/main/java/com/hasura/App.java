@@ -46,16 +46,20 @@ class App {
 	server
 	    .createContext("/capabilities",
 			   exchange -> {
-			       new Capabilities(
-				   new QueryCapabilities(
-				       new LeafCapability (), 
-				       null,
-				       null, 
-				       null), 
-				   new MutationCapabilities(
-				       null, 
-				       null), 
-				   null);
+			       objectMapper
+				   .writeValue(
+				       exchange
+				       .getResponseBody(), 
+				       new Capabilities(
+					   new QueryCapabilities(
+					       new LeafCapability (), 
+					       null,
+					       null, 
+					       null), 
+					   new MutationCapabilities(
+					       null, 
+					       null), 
+					   null));
 			   });
 	server.start();}}
 
