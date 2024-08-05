@@ -23,7 +23,7 @@ class App {
 	    .createContext("/healthz",
 			   exchange -> {
 			       exchange
-				   .sendResponseHeaders(204, 0);});
+				   .sendResponseHeaders(204, -1);});
 	server
 	    .createContext("/metrics",
 			   exchange -> {
