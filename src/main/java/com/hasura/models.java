@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Map;
 import jakarta.annotation.Nullable;
 
+record Foo(String bar) {}
+
 record CapabilitiesResponse(
 			    String version,
 			    Capabilities capabilities) {}
