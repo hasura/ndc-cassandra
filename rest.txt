@@ -1,0 +1,4 @@
+# -*- mode: restclient; -*-
+
+#
+GET http://localhost:8000/
