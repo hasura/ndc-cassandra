@@ -2,6 +2,7 @@ package com.hasura;
 
 import java.util.List;
 import java.util.Map;
+import jakarta.annotation.Nullable;
 
 record CapabilitiesResponse(
 			    String version,
@@ -10,29 +11,29 @@ record CapabilitiesResponse(
 record Capabilities(
 		    QueryCapabilities query,
 		    MutationCapabilities mutation,
-		    /* @Nullable */ RelationshipCapabilities relationships) {}
+		    @Nullable RelationshipCapabilities relationships) {}
 
 record QueryCapabilities(
-			 /* @Nullable */ LeafCapability aggregates,
-			 /* @Nullable */ LeafCapability variables,
-			 /* @Nullable */ LeafCapability explain,
-			 /* @Nullable */ NestedFieldCapabilities nested_fields) {}
+			 @Nullable LeafCapability aggregates,
+			 @Nullable LeafCapability variables,
+			 @Nullable LeafCapability explain,
+			 @Nullable NestedFieldCapabilities nested_fields) {}
 
 record LeafCapability(
 ) {}
 
 record NestedFieldCapabilities(
-			       /* @Nullable */ LeafCapability filter_by,
-			       /* @Nullable */ LeafCapability order_by,
-			       /* @Nullable */ LeafCapability aggregates) {}
+			       @Nullable LeafCapability filter_by,
+			       @Nullable LeafCapability order_by,
+			       @Nullable LeafCapability aggregates) {}
 
 record MutationCapabilities(
-			    /* @Nullable */ LeafCapability transactional,
-			    /* @Nullable */ LeafCapability explain) {}
+			    @Nullable LeafCapability transactional,
+			    @Nullable LeafCapability explain) {}
 
 record RelationshipCapabilities(
-				/* @Nullable */ LeafCapability relation_comparisons,
-				/* @Nullable */ LeafCapability order_by_aggregate) {}
+				@Nullable LeafCapability relation_comparisons,
+				@Nullable LeafCapability order_by_aggregate) {}
 
 record SchemaResponse(
 		      Map<String, Object> scalar_types,
@@ -42,7 +43,7 @@ record SchemaResponse(
 		      List<ProcedureInfo> procedures) {}
 
 record ScalarType(
-		  /* @Nullable */ TypeRepresentation representation,
+		  @Nullable TypeRepresentation representation,
 		  Map<String, Object> aggregate_functions,
 		  Map<String, Object> comparison_operators) {}
 
@@ -66,21 +67,21 @@ record ComparisonOperatorDefinition(
 ) {}
 
 record ObjectType(
-		  /* @Nullable */ String description,
+		  @Nullable String description,
 		  Map<String, Object> fields) {}
 
 record ObjectField(
-		   /* @Nullable */ String description,
+		   @Nullable String description,
 		   Type type,
 		   Map<String, Object> arguments) {}
 
 record ArgumentInfo(
-		    /* @Nullable */ String description,
+		    @Nullable String description,
 		    Type type) {}
 
 record CollectionInfo(
 		      String name,
-		      /* @Nullable */ String description,
+		      @Nullable String description,
 		      Map<String, Object> arguments,
 		      String type,
 		      Map<String, Object> uniqueness_constraints,
@@ -95,13 +96,13 @@ record ForeignKeyConstraint(
 
 record FunctionInfo(
 		    String name,
-		    /* @Nullable */ String description,
+		    @Nullable String description,
 		    Map<String, Object> arguments,
 		    Type result_type) {}
 
 record ProcedureInfo(
 		     String name,
-		     /* @Nullable */ String description,
+		     @Nullable String description,
 		     Map<String, Object> arguments,
 		     Type result_type) {}
 
@@ -110,15 +111,15 @@ record QueryRequest(
 		    Query query,
 		    Map<String, Object> arguments,
 		    Map<String, Object> collection_relationships,
-		    /* @Nullable */ List<Map<String, Object>> variables) {}
+		    @Nullable List<Map<String, Object>> variables) {}
 
 record Query(
-	     /* @Nullable */ Map<String, Aggregate> aggregates,
-	     /* @Nullable */ Map<String, Field> fields,
-	     /* @Nullable */ int limit,
-	     /* @Nullable */ int offset,
-	     /* @Nullable */ OrderBy order_by,
-	     /* @Nullable */ Expression predicate) {}
+	     @Nullable Map<String, Aggregate> aggregates,
+	     @Nullable Map<String, Field> fields,
+	     @Nullable int limit,
+	     @Nullable int offset,
+	     @Nullable OrderBy order_by,
+	     @Nullable Expression predicate) {}
 
 record Aggregate(
 ) {}
@@ -151,7 +152,7 @@ record OrderByTarget(
 record PathElement(
 		   String relationship,
 		   Map<String, Object> arguments,
-		   /* @Nullable */ Expression predicate) {}
+		   @Nullable Expression predicate) {}
 
 record Expression(
 ) {}
@@ -181,8 +182,8 @@ record QueryResponse(
 ) {}
 
 record RowSet(
-	      /* @Nullable */ Map<String, Object> aggregates,
-	      /* @Nullable */ List<Map<String, RowFieldValue>> rows) {}
+	      @Nullable Map<String, Object> aggregates,
+	      @Nullable List<Map<String, RowFieldValue>> rows) {}
 
 record RowFieldValue(
 ) {}
