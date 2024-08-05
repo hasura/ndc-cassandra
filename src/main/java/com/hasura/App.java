@@ -1,26 +1,19 @@
 package com.hasura;
 
-import com.sun.net.httpserver.*;
-import java.io.*;
-import java.net.*;
+import java.io.IOException;
+import java.net.InetSocketAddress;
 import java.util.concurrent.Executors;
-import java.util.*;
+
+import com.sun.net.httpserver.HttpServer;
     
-class App implements HttpHandler {
-	public static void main (String[] args) throws IOException {
+class App {
+    public static void main (String[] args) throws IOException {
+	var response = "This is the response".getBytes();
 	HttpServer server = HttpServer.create(new InetSocketAddress(8000), 0);
 	server.setExecutor(Executors.newVirtualThreadPerTaskExecutor());
-	server.createContext("/applications/myapp", new App());
-	server.setExecutor(null);
-	server.start();
-    }
+	server.createContext("/", exchange -> {
+		exchange.sendResponseHeaders(200, response.length);
+		try (var os = exchange.getResponseBody()) {
+		    os.write(response);}});
+	server.start();}}
 
-	public void handle(HttpExchange t) throws IOException {
-	// InputStream is = t.getRequestBody();
-	String response = "This is the response";
-	t.sendResponseHeaders(200, response.length());
-	OutputStream os = t.getResponseBody();
-	os.write(response.getBytes());
-	os.close();
-    }
-}
