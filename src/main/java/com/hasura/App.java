@@ -15,12 +15,6 @@ class App {
 	server
 	    .setExecutor(Executors.newVirtualThreadPerTaskExecutor());
 	server
-	    .createContext("/", exchange -> {
-		    var response = "This is the response".getBytes();
-		    exchange.sendResponseHeaders(200, response.length);
-		    try (var os = exchange.getResponseBody()) {
-			os.write(response);}});
-	server
 	    .createContext("/healthz",
 			   exchange -> {
 			       exchange
