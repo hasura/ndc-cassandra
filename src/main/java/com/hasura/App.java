@@ -49,16 +49,16 @@ class App {
 	    .createContext("/capabilities",
 			   exchange -> {
 			       var response = objectMapper.writeValueAsBytes(
-				       new Capabilities(
-					   new QueryCapabilities(
-					       new LeafCapability (), 
-					       null,
-					       null, 
-					       null), 
-					   new MutationCapabilities(
-					       null, 
-					       null), 
-					   null));
+				   new Capabilities(
+				       new QueryCapabilities(
+					   new LeafCapability (), 
+					   null,
+					   null, 
+					   null), 
+				       new MutationCapabilities(
+					   null, 
+					   null), 
+				       null));
 			       exchange
 				   .getResponseHeaders()
 				   .add("content-type", "application/json");
