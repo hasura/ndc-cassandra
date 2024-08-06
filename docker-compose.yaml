@@ -1,0 +1,12 @@
+version: '3.1'
+services:
+  cassandra:
+    image: bitnami/cassandra:latest
+    ports:
+      - 7000:7000
+      - 9042:9042
+    environment:
+      - CASSANDRA_USER=cassandra
+      - CASSANDRA_PASSWORD=cassandra
+    volumes:
+      - ./initdb.d-cassandra:/docker-entrypoint-initdb.d:ro
