@@ -65,6 +65,11 @@
               jar-with-dependencies
             </descriptorRef>
 	  </descriptorRefs>
+	  <archive>
+	    <manifest>
+	      <mainClass>com.hasura.App</mainClass>
+	    </manifest>
+	  </archive>
 	</configuration>
 	<executions>
 	  <execution>
