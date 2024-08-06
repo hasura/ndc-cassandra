@@ -4,213 +4,216 @@ import java.util.List;
 import java.util.Map;
 import jakarta.annotation.Nullable;
 
-record Foo(String bar) {}
+public interface models {
 
-record CapabilitiesResponse(
-			    String version,
-			    Capabilities capabilities) {}
+    record Foo(String bar) {}
 
-record Capabilities(
-		    QueryCapabilities query,
-		    MutationCapabilities mutation,
-		    @Nullable RelationshipCapabilities relationships) {}
+    record CapabilitiesResponse(
+	String version,
+	Capabilities capabilities) {}
 
-record QueryCapabilities(
-			 @Nullable LeafCapability aggregates,
-			 @Nullable LeafCapability variables,
-			 @Nullable LeafCapability explain,
-			 @Nullable NestedFieldCapabilities nested_fields) {}
+    record Capabilities(
+	QueryCapabilities query,
+	MutationCapabilities mutation,
+	@Nullable RelationshipCapabilities relationships) {}
 
-record LeafCapability(
-) {}
+    record QueryCapabilities(
+	@Nullable LeafCapability aggregates,
+	@Nullable LeafCapability variables,
+	@Nullable LeafCapability explain,
+	@Nullable NestedFieldCapabilities nested_fields) {}
 
-record NestedFieldCapabilities(
-			       @Nullable LeafCapability filter_by,
-			       @Nullable LeafCapability order_by,
-			       @Nullable LeafCapability aggregates) {}
+    record LeafCapability(
+	) {}
 
-record MutationCapabilities(
-			    @Nullable LeafCapability transactional,
-			    @Nullable LeafCapability explain) {}
+    record NestedFieldCapabilities(
+	@Nullable LeafCapability filter_by,
+	@Nullable LeafCapability order_by,
+	@Nullable LeafCapability aggregates) {}
 
-record RelationshipCapabilities(
-				@Nullable LeafCapability relation_comparisons,
-				@Nullable LeafCapability order_by_aggregate) {}
+    record MutationCapabilities(
+	@Nullable LeafCapability transactional,
+	@Nullable LeafCapability explain) {}
 
-record SchemaResponse(
-		      Map<String, Object> scalar_types,
-		      Map<String, Object> object_types,
-		      List<CollectionInfo> collections,
-		      List<FunctionInfo> functions,
-		      List<ProcedureInfo> procedures) {}
+    record RelationshipCapabilities(
+	@Nullable LeafCapability relation_comparisons,
+	@Nullable LeafCapability order_by_aggregate) {}
 
-record ScalarType(
-		  @Nullable TypeRepresentation representation,
-		  Map<String, Object> aggregate_functions,
-		  Map<String, Object> comparison_operators) {}
+    record SchemaResponse(
+	Map<String, Object> scalar_types,
+	Map<String, Object> object_types,
+	List<CollectionInfo> collections,
+	List<FunctionInfo> functions,
+	List<ProcedureInfo> procedures) {}
 
-record TypeRepresentation(
-) {}
+    record ScalarType(
+	@Nullable TypeRepresentation representation,
+	Map<String, Object> aggregate_functions,
+	Map<String, Object> comparison_operators) {}
 
-record AggregateFunctionDefinition(
-				   Type result_type) {}
+    record TypeRepresentation(
+	) {}
 
-enum Type {
-    NAMED,
-    NULLABLE,
-    ARRAY,
-    PREDICATE
-}
+    record AggregateFunctionDefinition(
+	Type result_type) {}
+
+    enum Type {
+	NAMED,
+	NULLABLE,
+	ARRAY,
+	PREDICATE
+    }
 
 // record Type(
 // ) {}
 
-record ComparisonOperatorDefinition(
-) {}
+    record ComparisonOperatorDefinition(
+	) {}
 
-record ObjectType(
-		  @Nullable String description,
-		  Map<String, Object> fields) {}
+    record ObjectType(
+	@Nullable String description,
+	Map<String, Object> fields) {}
 
-record ObjectField(
-		   @Nullable String description,
-		   Type type,
-		   Map<String, Object> arguments) {}
+    record ObjectField(
+	@Nullable String description,
+	Type type,
+	Map<String, Object> arguments) {}
 
-record ArgumentInfo(
-		    @Nullable String description,
-		    Type type) {}
+    record ArgumentInfo(
+	@Nullable String description,
+	Type type) {}
 
-record CollectionInfo(
-		      String name,
-		      @Nullable String description,
-		      Map<String, Object> arguments,
-		      String type,
-		      Map<String, Object> uniqueness_constraints,
-		      Map<String, Object> foreign_keys) {}
+    record CollectionInfo(
+	String name,
+	@Nullable String description,
+	Map<String, Object> arguments,
+	String type,
+	Map<String, Object> uniqueness_constraints,
+	Map<String, Object> foreign_keys) {}
 
-record UniquenessConstraint(
-			    List<String> unique_columns) {}
+    record UniquenessConstraint(
+	List<String> unique_columns) {}
 
-record ForeignKeyConstraint(
-			    Map<String, Object> column_mapping,
-			    String foreign_collection) {}
+    record ForeignKeyConstraint(
+	Map<String, Object> column_mapping,
+	String foreign_collection) {}
 
-record FunctionInfo(
-		    String name,
-		    @Nullable String description,
-		    Map<String, Object> arguments,
-		    Type result_type) {}
+    record FunctionInfo(
+	String name,
+	@Nullable String description,
+	Map<String, Object> arguments,
+	Type result_type) {}
 
-record ProcedureInfo(
-		     String name,
-		     @Nullable String description,
-		     Map<String, Object> arguments,
-		     Type result_type) {}
+    record ProcedureInfo(
+	String name,
+	@Nullable String description,
+	Map<String, Object> arguments,
+	Type result_type) {}
 
-record QueryRequest(
-		    String collection,
-		    Query query,
-		    Map<String, Object> arguments,
-		    Map<String, Object> collection_relationships,
-		    @Nullable List<Map<String, Object>> variables) {}
+    record QueryRequest(
+	String collection,
+	Query query,
+	Map<String, Object> arguments,
+	Map<String, Object> collection_relationships,
+	@Nullable List<Map<String, Object>> variables) {}
 
-record Query(
-	     @Nullable Map<String, Aggregate> aggregates,
-	     @Nullable Map<String, Field> fields,
-	     @Nullable int limit,
-	     @Nullable int offset,
-	     @Nullable OrderBy order_by,
-	     @Nullable Expression predicate) {}
+    record Query(
+	@Nullable Map<String, Aggregate> aggregates,
+	@Nullable Map<String, Field> fields,
+	@Nullable int limit,
+	@Nullable int offset,
+	@Nullable OrderBy order_by,
+	@Nullable Expression predicate) {}
 
-record Aggregate(
-) {}
+    record Aggregate(
+	) {}
 
-record Field(
-) {}
+    record Field(
+	) {}
 
-record NestedField(
-) {}
+    record NestedField(
+	) {}
 
-record Argument(
-) {}
+    record Argument(
+	) {}
 
-record RelationshipArgument(
-) {}
+    record RelationshipArgument(
+	) {}
 
-record OrderBy(
-	       List<OrderByElement> elements) {}
+    record OrderBy(
+	List<OrderByElement> elements) {}
 
-record OrderByElement(
-		      OrderDirection order_direction,
-		      OrderByTarget target) {}
+    record OrderByElement(
+	OrderDirection order_direction,
+	OrderByTarget target) {}
 
-record OrderDirection(
-) {}
+    record OrderDirection(
+	) {}
 
-record OrderByTarget(
-) {}
+    record OrderByTarget(
+	) {}
 
-record PathElement(
-		   String relationship,
-		   Map<String, Object> arguments,
-		   @Nullable Expression predicate) {}
+    record PathElement(
+	String relationship,
+	Map<String, Object> arguments,
+	@Nullable Expression predicate) {}
 
-record Expression(
-) {}
+    record Expression(
+	) {}
 
-record ComparisonTarget(
-) {}
+    record ComparisonTarget(
+	) {}
 
-record UnaryComparisonOperator(
-) {}
+    record UnaryComparisonOperator(
+	) {}
 
-record ComparisonValue(
-) {}
+    record ComparisonValue(
+	) {}
 
-record ExistsInCollection(
-) {}
+    record ExistsInCollection(
+	) {}
 
-record Relationship(
-		    Map<String, Object> column_mapping,
-		    RelationshipType relationship_type,
-		    String target_collection,
-		    Map<String, Object> arguments) {}
+    record Relationship(
+	Map<String, Object> column_mapping,
+	RelationshipType relationship_type,
+	String target_collection,
+	Map<String, Object> arguments) {}
 
-record RelationshipType(
-) {}
+    record RelationshipType(
+	) {}
 
-record QueryResponse(
-) {}
+    record QueryResponse(
+	) {}
 
-record RowSet(
-	      @Nullable Map<String, Object> aggregates,
-	      @Nullable List<Map<String, RowFieldValue>> rows) {}
+    record RowSet(
+	@Nullable Map<String, Object> aggregates,
+	@Nullable List<Map<String, RowFieldValue>> rows) {}
 
-record RowFieldValue(
-) {}
+    record RowFieldValue(
+	) {}
 
-record MutationRequest(
-		       List<MutationOperation> operations,
-		       Map<String, Object> collection_relationships) {}
+    record MutationRequest(
+	List<MutationOperation> operations,
+	Map<String, Object> collection_relationships) {}
 
-record MutationOperation(
-) {}
+    record MutationOperation(
+	) {}
 
-record MutationResponse(
-			List<MutationOperationResults> operation_results) {}
+    record MutationResponse(
+	List<MutationOperationResults> operation_results) {}
 
-record MutationOperationResults(
-) {}
+    record MutationOperationResults(
+	) {}
 
-record ExplainResponse(
-		       Map<String, Object> details) {}
+    record ExplainResponse(
+	Map<String, Object> details) {}
 
-record ErrorResponse(
-		     String message,
-		     Map<String, Object> details) {}
+    record ErrorResponse(
+	String message,
+	Map<String, Object> details) {}
 
-record ValidateResponse(
-			SchemaResponse schema,
-			CapabilitiesResponse capabilities,
-			String resolved_configuration) {}
+    record ValidateResponse(
+	SchemaResponse schema,
+	CapabilitiesResponse capabilities,
+	String resolved_configuration) {}
+}
