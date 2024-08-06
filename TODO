@@ -1,0 +1,20 @@
+# -*- mode: org; -*-
+
+#+STARTUP: indent
+
+* TODO Implement configuration.
+* TODO Implement instrumentation.
+** TODO Implement metrics.
+** TODO Implement OpenTelemetry.
+** TODO Implement logging.
+* TODO Add JavaDoc comments.
+* TODO Extract connector into abstract base class(es).
+** TODO Implement a ~Connector~ interface.
+** TODO Implement a ~Start~ method which takes a ~Connector~ object.
+* TODO Implement CLI arguments.                                    :OPTIONAL:
+** TODO Use the same commands and options as in the Go and Rust SDKs.
+* TODO Publish to Maven Central.                                   :OPTIONAL:
+* TODO Upgrade build pipeline.
+** TODO Switch from FatJar to ThinJar.                            :OPTIONAL:
+* TODO Add tests.
+** TODO Use [[https://testcontainers.com/][TestContainers]].                                       :OPTIONAL:
