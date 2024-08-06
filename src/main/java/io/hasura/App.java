@@ -1,4 +1,4 @@
-package com.hasura;
+package io.hasura;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -6,7 +6,7 @@ import java.util.concurrent.Executors;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sun.net.httpserver.HttpServer;
-import com.hasura.models.*;
+import io.hasura.models.*;
 
 class App {
     public static void main (String[] args) throws IOException {

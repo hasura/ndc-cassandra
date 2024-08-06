@@ -1,4 +1,4 @@
-package com.hasura;
+package io.hasura;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

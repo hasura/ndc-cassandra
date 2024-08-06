@@ -1,4 +1,4 @@
-package com.hasura;
+package io.hasura;
 
 import java.util.List;
 import java.util.Map;
