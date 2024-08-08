@@ -8,7 +8,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sun.net.httpserver.HttpServer;
 import io.hasura.models.*;
 
-class App {
+public class App {
     public static void main (String[] args) throws IOException {
 	var objectMapper = new ObjectMapper();
 	HttpServer server = HttpServer.create(new InetSocketAddress(8000), 0);

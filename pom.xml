@@ -9,9 +9,8 @@
   <name>ndc-cassandradb</name>
   <url>http://maven.apache.org</url>
   <properties>
-    <maven-shade-plugin.version>3.2.4</maven-shade-plugin.version>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.build.outputEncoding>UTF-8</project.build.outputEncoding>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   <dependencyManagement>
     <dependencies>
@@ -152,6 +151,21 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
         <version>3.2.5</version>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>3.4.0</version>
+	<executions>
+	  <execution>
+	    <goals>
+	      <goal>java</goal>
+	    </goals>
+	  </execution>
+	</executions>
+        <configuration>
+          <mainClass>io.hasura.App</mainClass>
+        </configuration>
       </plugin>
     </plugins>
   </build>
