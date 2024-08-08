@@ -3,10 +3,10 @@ services:
   cassandra:
     image: bitnami/cassandra:latest
     ports:
-      - 7000:7000
-      - 9042:9042
+      - 9043:9042
     environment:
-      - CASSANDRA_USER=cassandra
-      - CASSANDRA_PASSWORD=cassandra
+      CASSANDRA_USER: cassandra
+      CASSANDRA_PASSWORD: cassandra
+      CASSANDRA_CFG_YAML_MATERIALIZED_VIEWS_ENABLED: true
     volumes:
       - ./initdb.d-cassandra:/docker-entrypoint-initdb.d:ro
