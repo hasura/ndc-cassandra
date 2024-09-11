@@ -1,7 +1,0 @@
-target
-
-.classpath
-.project
-.settings/
-.factorypath
-initdb.d-cassandra/data.cql

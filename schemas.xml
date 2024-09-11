@@ -1,3 +1,0 @@
-<locatingRules xmlns="http://thaiopensource.com/ns/locating-rules/1.0">
-  <namespace ns="http://maven.apache.org/POM/4.0.0" uri="maven-v4_0_0.rnc"/>
-</locatingRules>
