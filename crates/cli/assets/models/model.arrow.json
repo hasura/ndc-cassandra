@@ -1,0 +1,15 @@
+{
+  "version": "1.0",
+  "defaultSchema": "default",
+  "schemas": [
+    {
+      "name": "default",
+      "cache": true,
+      "type": "custom",
+      "factory": "org.apache.calcite.adapter.arrow.ArrowSchemaFactory",
+      "operand": {
+        "directory": "/etc/connector/data/arrow"
+      }
+    }
+  ]
+}

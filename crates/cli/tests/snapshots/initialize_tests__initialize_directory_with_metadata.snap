@@ -1,0 +1,20 @@
+---
+source: crates/cli/tests/initialize_tests.rs
+expression: contents
+---
+packagingDefinition:
+  type: PrebuiltDockerImage
+  dockerImage: docker.io/hasura/ndc-calcite:latest
+supportedEnvironmentVariables:
+- name: MODEL_FILE
+  description: The Calcite model file path
+  defaultValue: ./models/model.json
+commands:
+  update: hasura-ndc-calcite update
+cliPlugin:
+  name: ndc-calcite
+  version: latest
+dockerComposeWatch:
+- path: ./
+  target: /etc/connector
+  action: sync+restart

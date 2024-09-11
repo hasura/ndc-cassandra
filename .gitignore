@@ -1,0 +1,23 @@
+# Compiled files
+*.o
+*.so
+*.rlib
+*.dll
+
+# Executables
+*.exe
+/target/
+
+# Common IDE files
+.idea/
+*.iml
+target/
+*.rs.bk
+/adapters/file/model.json
+/config-test/*
+/adapters/hive/hive_data/
+/adapters/hive/mariadb_data/
+/adapters/hive/beeline.conf/
+/adapters/hive/hadoop_data/
+
+/test-connector/

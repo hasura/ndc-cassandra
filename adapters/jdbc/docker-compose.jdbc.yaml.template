@@ -1,0 +1,24 @@
+services:
+  ${SUBGRAPH}_${CONNECTOR}:
+    build:
+      context: .
+      dockerfile_inline: |-
+        FROM jdbc_connector:latest
+        COPY ./ /etc/connector
+    develop:
+      watch:
+        - path: ./
+          action: sync+restart
+          target: /etc/connector
+    env_file:
+      - .env.local
+    extra_hosts:
+      - local.hasura.dev=host-gateway
+    ports:
+      - mode: ingress
+        target: 8080
+        published: "${PORT}"
+        protocol: tcp
+    volumes:
+      - ${DATA}:/data.db
+      - ./configuration.json:/update/connector/configuration.json

@@ -1,0 +1,35 @@
+[package]
+name = "ndc-calcite-cli"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[lints]
+workspace = true
+
+[dependencies]
+ndc-calcite-schema = { path = "../calcite-schema"}
+ndc-calcite-values = { path = "../values"}
+
+anyhow = { workspace = true }
+clap = { workspace = true, features = ["derive", "env"] }
+serde = { workspace = true, features = ["derive"] }
+serde_json = { workspace = true }
+serde_yaml = { workspace = true }
+thiserror = { workspace = true }
+tokio = { workspace = true, features = ["full"] }
+include_dir = { version = "0.7.4", features = ["default", "glob"] }
+tracing-subscriber = "0.3.18"
+tracing = "0.1.40"
+log = "0.4.22"
+env_logger = "0.11.5"
+
+[build-dependencies]
+build-data = { workspace = true }
+
+[dev-dependencies]
+insta = { workspace = true }
+tempfile = { workspace = true }
+
+[package.metadata.cargo-machete]
+ignored = ["build_data"] # apparently cargo-machete doesn't find dependencies used by build scripts

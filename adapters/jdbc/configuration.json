@@ -1,0 +1,6 @@
+{
+  "version": "5",
+  "$schema": "schema.json",
+  "fixes": true,
+  "model_file": "./model"
+}
