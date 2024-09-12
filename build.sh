@@ -4,7 +4,7 @@ mvn clean
 cd calcite
 ./gradlew clean
 
- create a tag name from the last connector release
+# create a tag name from the last connector release
 cd ../..
 release_info=$(curl -L \
   -H "Accept: application/vnd.github+json" \
