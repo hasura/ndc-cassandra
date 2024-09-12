@@ -21,3 +21,4 @@ target/
 /adapters/hive/hadoop_data/
 
 /test-connector/
+adapters/file/data/files/
