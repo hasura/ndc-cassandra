@@ -22,3 +22,5 @@ target/
 
 /test-connector/
 adapters/file/data/files/
+connector-definition.tgz
+connector-definition/.hasura-connector/
