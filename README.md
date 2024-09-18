@@ -38,7 +38,7 @@ This will build the Java jars that the Rust project (at the root of this mono-re
 
 ```shell
 cd ..
-cargo build --bin ndc-cassandra --bin ndc-calcite-cli
+cargo build --bin ndc-calcite --bin ndc-calcite-cli
 ```
 
 ### Test the file adapter
