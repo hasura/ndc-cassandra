@@ -1,4 +1,4 @@
-# NDC Calcite
+# NDC Cassandra
 
 This repository contains an adapter that is metadata configurable to support approximately 40 data sources.
 
@@ -8,11 +8,11 @@ Approximately 15 files-based data sources, and 25 JDBC based data sources.
 
 ### Clone the repo && the subrepo
 
-This adapter is based on a forked version of Calcite (the sub-repo)
+This adapter is based on a forked version of Cassandra (the sub-repo)
 
 ```shell
- git clone --recurse-submodules https://github.com/hasura/ndc-calcite.git calcite-connector
- cd calcite-connector
+ git clone https://github.com/hasura/ndc-cassandra.git
+ cd ndc-cassandra
  git checkout main
 ```
 
@@ -23,11 +23,11 @@ the primary and sub-branch on your own!
 
 The project will require jdk 21 and maven. You need to have those installed first.
 
-This is the JNI for calcite. It handles the Calcite to Rust handoff.
+This is the JNI for cassandra. It handles the Cassandra to Rust handoff.
 
 You can build it like this.
 ```shell
-cd calcite-rs-jni
+cd cassandra-rs-jni
 chmod +x build.sh
 ./build.sh
 ```
@@ -38,7 +38,7 @@ This will build the Java jars that the Rust project (at the root of this mono-re
 
 ```shell
 cd ..
-cargo build --bin ndc-calcite --bin ndc-calcite-cli
+cargo build --bin ndc-cassandra --bin ndc-cassandra-cli
 ```
 
 ### Test the file adapter
@@ -69,7 +69,7 @@ cd test-connector
 ### Create a connector under default subgraph "app"
 ```shell
 mkdir ./app/connector
-ddn connector-link add calcite --configure-connector-token secret --configure-host http://local.hasura.dev:8081 --subgraph app/subgraph.yaml --target-env-file .env
+ddn connector-link add cassandra --configure-connector-token secret --configure-host http://local.hasura.dev:8081 --subgraph app/subgraph.yaml --target-env-file .env
 ```
 
 ### Add metadata to the connector
@@ -78,17 +78,17 @@ This script is one-and-done, you can't redo without resetting back to prior stat
 You might consider, committing before running this, to facilitate a rollback.
 ```shell
 chmod +x ../cli.sh
-../cli.sh ./app/connector/calcite 8081 secret
+../cli.sh ./app/connector/cassandra 8081 secret
 ```
 
-### Optional Revise Calcite Adapter
+### Optional Revise Cassandra Adapter
 
-This will setup a SQLite connector. If you want to change the connector DO IT NOW. Go to `app/connector/calcite/models/model.json` and revise the schema(s).
-Look at the sample models for ideas, or, get more details from [Apache Calcite](https://calcite.apache.org/docs/adapter.html).
+This will setup a SQLite connector. If you want to change the connector DO IT NOW. Go to `app/connector/cassandra/models/model.json` and revise the schema(s).
+Look at the sample models for ideas, or, get more details from [Apache Cassandra](https://cassandra.apache.org/docs/adapter.html).
 
 ```shell
 chmod +x ../cli-update-model.sh
-../cli-update-model.sh ./app/connector/calcite
+../cli-update-model.sh ./app/connector/cassandra
 ```
 
 ### Start supergraph
@@ -104,7 +104,7 @@ HASURA_DDN_PAT=$(ddn auth print-pat) docker compose --env-file .env up --build -
 ### Introspect
 
 ```shell
-ddn connector-link update calcite --add-all-resources --subgraph app/subgraph.yaml
+ddn connector-link update cassandra --add-all-resources --subgraph app/subgraph.yaml
 ```
 
 ### Build supergraph
