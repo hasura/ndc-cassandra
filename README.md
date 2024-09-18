@@ -27,7 +27,7 @@ This is the JNI for cassandra. It handles the Cassandra to Rust handoff.
 
 You can build it like this.
 ```shell
-cd cassandra-rs-jni
+cd calcite-rs-jni
 chmod +x build.sh
 ./build.sh
 ```
