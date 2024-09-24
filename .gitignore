@@ -24,3 +24,16 @@ target/
 adapters/file/data/files/
 connector-definition.tgz
 connector-definition/.hasura-connector/
+calcite-rs-jni/calcite/testkit/build/kotlin/compileKotlin/classpath-snapshot/shrunk-classpath-snapshot.bin
+calcite-rs-jni/calcite/testkit/build/libs/calcite-testkit-1.38.0-SNAPSHOT-sources.jar
+calcite-rs-jni/calcite/testkit/build/libs/calcite-testkit-1.38.0-SNAPSHOT.jar
+calcite-rs-jni/calcite/testkit/build/tmp/compileJava/previous-compilation-data.bin
+calcite-rs-jni/calcite/testkit/build/tmp/jar/MANIFEST.MF
+calcite-rs-jni/calcite/testkit/build/tmp/sourcesJar/MANIFEST.MF
+calcite-rs-jni/calcite/arrow/build/classes/java/main/org/apache/calcite/adapter/arrow/
+calcite-rs-jni/calcite/arrow/build/generated/sources/annotationProcessor/java/main/org/apache/calcite/adapter/arrow/
+calcite-rs-jni/calcite/arrow/build/jandex/jandexMain/
+calcite-rs-jni/calcite/arrow/build/libs/
+calcite-rs-jni/calcite/arrow/build/tmp/compileJava/
+calcite-rs-jni/calcite/arrow/build/tmp/jar/
+calcite-rs-jni/calcite/arrow/build/tmp/sourcesJar/
