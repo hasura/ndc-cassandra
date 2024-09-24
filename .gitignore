@@ -23,7 +23,6 @@ target/
 /test-connector/
 adapters/file/data/files/
 connector-definition.tgz
-connector-definition/.hasura-connector/
 calcite-rs-jni/calcite/testkit/build/kotlin/compileKotlin/classpath-snapshot/shrunk-classpath-snapshot.bin
 calcite-rs-jni/calcite/testkit/build/libs/calcite-testkit-1.38.0-SNAPSHOT-sources.jar
 calcite-rs-jni/calcite/testkit/build/libs/calcite-testkit-1.38.0-SNAPSHOT.jar
