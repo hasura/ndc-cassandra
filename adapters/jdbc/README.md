@@ -1,1 +1,0 @@
-[JDBC Adapter](https://calcite.apache.org/docs/tutorial.html#jdbc-adapter)

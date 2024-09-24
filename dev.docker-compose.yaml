@@ -1,9 +1,0 @@
-services:
-  my_subgraph_calcite:
-    image: ndc-calcite:latest
-    env_file:
-      - adapters/file/.env.local
-    extra_hosts:
-      - local.hasura.dev=host-gateway
-    ports:
-      - "8083:8080"
