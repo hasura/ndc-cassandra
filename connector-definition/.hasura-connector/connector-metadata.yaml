@@ -1,12 +1,12 @@
 packagingDefinition:
   type: PrebuiltDockerImage
-  dockerImage: ghcr.io/hasura/ndc-cassandra:v1.0.4
+  dockerImage: ghcr.io/hasura/ndc-cassandra:v1.0.5
 supportedEnvironmentVariables:
   - name: MODEL_FILE
     description: The calcite connection model file path
     defaultValue: /etc/connector/models/model.json
 commands:
-  update: docker run --entrypoint ndc-calcite-cli -e HASURA_PLUGIN_CONNECTOR_CONTEXT_PATH -v ${HASURA_PLUGIN_CONNECTOR_CONTEXT_PATH}:/etc/connector -v ${HASURA_PLUGIN_CONNECTOR_CONTEXT_PATH}:/app/output:ro ghcr.io/hasura/meta_connector:v1.0.4 update
+  update: docker run --entrypoint ndc-calcite-cli -e HASURA_PLUGIN_CONNECTOR_CONTEXT_PATH -v ${HASURA_PLUGIN_CONNECTOR_CONTEXT_PATH}:/etc/connector -v ${HASURA_PLUGIN_CONNECTOR_CONTEXT_PATH}:/app/output:rw ghcr.io/hasura/meta_connector:v1.0.5 update
 dockerComposeWatch:
   - path: ./
     target: /app/output

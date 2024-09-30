@@ -1,0 +1,20 @@
+{
+    "version": "1.0",
+    "defaultSchema": "twissandra",
+    "schemas": [
+	{
+	    "name": "twissandra",
+	    "type": "custom",
+	    "factory": "org.apache.calcite.adapter.cassandra.CassandraSchemaFactory",
+	    "operand": {
+		"host": "${CASSANDRA_HOST}",
+		"keyspace": "${CASSANDRA_KEYSPACE}",
+		"username": "${CASSANDRA_USERNAME}",
+		"password": "${CASSANDRA_PASSWORD}",
+		"port": ${CASSANDRA_PORT},
+		"ssl": true,
+		"pathToRootCert": "${CASSANDRA_SSL_CA_PATH}"
+	    }
+	}
+    ]
+}
