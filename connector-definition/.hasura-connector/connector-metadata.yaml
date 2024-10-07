@@ -36,4 +36,5 @@ dockerComposeWatch:
   - path: ./
     target: /app/output
     action: sync+restart
-    ignore: true
+    ignore:
+      - true
