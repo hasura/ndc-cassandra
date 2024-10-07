@@ -4,26 +4,36 @@ packagingDefinition:
 supportedEnvironmentVariables:
   - name: CASSANDRA_HOST
     description: Cassandra Host
+    required: true
   - name: CASSANDRA_KEYSPACE
     description: Cassandra KeySpace
+    required: true
   - name: CASSANDRA_USERNAME
     description: Cassandra username
+    required: true
   - name: CASSANDRA_PASSWORD
     description: Cassandra password
+    required: true
   - name: CASSANDRA_PORT
     description: Cassandra port
     defaultValue: 9042
+    required: false
   - name: CASSANDRA_DC
     description: Cassandra Data Center
+    defaultValue: ""
+    required: false
   - name: CASSANDRA_SSL_CA_PATH
     description: Cassandra self-signed root cert path
-    defaultValue: /etc/connector/root.crt
+    defaultValue: ""
+    required: false
   - name: CASSANDRA_SSL
     description: Cassandra SSL
-    defaultValue: false
+    defaultValue: true
+    required: false
 commands:
   update: docker run --entrypoint ndc-calcite-cli -e HASURA_PLUGIN_CONNECTOR_CONTEXT_PATH -v ${HASURA_PLUGIN_CONNECTOR_CONTEXT_PATH}:/etc/connector -v ${HASURA_PLUGIN_CONNECTOR_CONTEXT_PATH}:/app/output:rw ghcr.io/hasura/ndc-calcite:latest update
 dockerComposeWatch:
   - path: ./
     target: /app/output
     action: sync+restart
+    ignore: true
