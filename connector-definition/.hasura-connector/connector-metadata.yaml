@@ -31,7 +31,21 @@ supportedEnvironmentVariables:
     defaultValue: true
     required: false
 commands:
-  update: docker run --entrypoint ndc-calcite-cli -e HASURA_PLUGIN_CONNECTOR_CONTEXT_PATH -v ${HASURA_PLUGIN_CONNECTOR_CONTEXT_PATH}:/etc/connector -v ${HASURA_PLUGIN_CONNECTOR_CONTEXT_PATH}:/app/output:rw ghcr.io/hasura/ndc-calcite:latest update
+  update: |
+    docker run \
+    --entrypoint ndc-calcite-cli \
+    -e CASSANDRA_HOST="$CASSANDRA_HOST" \
+    -e CASSANDRA_KEYSPACE="$CASSANDRA_KEYSPACE" \
+    -e CASSANDRA_USERNAME="$CASSANDRA_USERNAME" \
+    -e CASSANDRA_PASSWORD="$CASSANDRA_PASSWORD" \
+    -e CASSANDRA_PORT="$CASSANDRA_PORT" \
+    -e CASSANDRA_DC="$CASSANDRA_DC" \
+    -e CASSANDRA_SSL_CA_PATH="$CASSANDRA_SSL_CA_PATH" \
+    -e CASSANDRA_SSL="$CASSANDRA_SSL" \
+    -e HASURA_PLUGIN_CONNECTOR_CONTEXT_PATH \
+    -v ${HASURA_PLUGIN_CONNECTOR_CONTEXT_PATH}:/etc/connector \
+    -v ${HASURA_PLUGIN_CONNECTOR_CONTEXT_PATH}:/app/output:rw \
+    ghcr.io/hasura/ndc-calcite:latest update
 dockerComposeWatch:
   - path: ./
     target: /app/output
