@@ -12,8 +12,8 @@
                 "username": "{{CASSANDRA_USERNAME}}",
                 "password": "{{CASSANDRA_PASSWORD}}",
                 "port": {{CASSANDRA_PORT}},
-		"ssl": {{CASSANDRA_SSL}},
-		"dc": "{{CASSANDRA_DC}}",
+                "ssl": {{CASSANDRA_SSL}},
+                "dc": "{{CASSANDRA_DC}}",
                 "pathToRootCert": "{{CASSANDRA_SSL_CA_PATH}}"
             }
         }

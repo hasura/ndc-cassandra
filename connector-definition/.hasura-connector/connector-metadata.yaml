@@ -51,4 +51,3 @@ dockerComposeWatch:
     target: /app/output
     action: sync+restart
     ignore: ["true"]
-
