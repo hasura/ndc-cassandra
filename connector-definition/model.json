@@ -7,14 +7,14 @@
             "type": "custom",
             "factory": "org.apache.calcite.adapter.cassandra.CassandraSchemaFactory",
             "operand": {
-                "host": "{{CASSANDRA_HOST}}",
-                "keyspace": "{{CASSANDRA_KEYSPACE}}",
-                "username": "{{CASSANDRA_USERNAME}}",
-                "password": "{{CASSANDRA_PASSWORD}}",
-                "port": {{CASSANDRA_PORT}},
-                "ssl": {{CASSANDRA_SSL}},
-                "dc": "{{CASSANDRA_DC}}",
-                "pathToRootCert": "{{CASSANDRA_SSL_CA_PATH}}"
+                "host": "${CASSANDRA_HOST}",
+                "keyspace": "${CASSANDRA_KEYSPACE}",
+                "username": "${CASSANDRA_USERNAME}",
+                "password": "${CASSANDRA_PASSWORD}",
+                "port": ${CASSANDRA_PORT},
+                "ssl": ${CASSANDRA_SSL},
+                "dc": "${CASSANDRA_DC}",
+                "pathToRootCert": "${CASSANDRA_SSL_CA_PATH}"
             }
         }
     ]
